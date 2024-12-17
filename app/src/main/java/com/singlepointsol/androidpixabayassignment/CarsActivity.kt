@@ -1,18 +1,17 @@
 
-package com.singlepointsol.project
+package com.singlepointsol.androidpixabayassignment
 
 import android.annotation.SuppressLint
-import  android.os.Bundle
+import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.singlepointsol.androidpixabayassignment.R
+import com.bumptech.glide.Glide
 
 class CarsActivity : AppCompatActivity() {
-    lateinit var flowerImageView: ImageView
+    lateinit var carImageView: ImageView
     lateinit var userName: TextView
     lateinit var viewCount: TextView
-    lateinit var downloadCount: TextView
     lateinit var likesCount: TextView
 
     @SuppressLint("MissingInflatedId")
@@ -20,19 +19,17 @@ class CarsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cars)
 
-        carsImageView = findViewById(R.id.cars_imageView)
+        carImageView = findViewById(R.id.cars_imageView)
         userName = findViewById(R.id.user_name)
         viewCount = findViewById(R.id.view_count)
-        downloadCount = findViewById(R.id.download_count)
         likesCount = findViewById(R.id.likes_count)
 
-        val imageUrl = intent.getStringExtra("flowerImage")
+        val imageUrl = intent.getStringExtra("carImage")
         val user = intent.getStringExtra("user")
         val views = intent.getIntExtra("views", 0)
-        val downloads = intent.getIntExtra("downloads", 0)
         val likes = intent.getIntExtra("likes", 0)
 
-        Glide.with(this).load(imageUrl).into(carsImageView)
+        Glide.with(this).load(imageUrl).into(carImageView)
 
         userName.text = "User: $user"
         viewCount.text = "Views: $views"

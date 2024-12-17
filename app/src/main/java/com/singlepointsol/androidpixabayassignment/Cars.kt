@@ -1,4 +1,4 @@
-package com.singlepointsol.project
+package com.singlepointsol.androidpixabayassignment
 
 import com.google.gson.annotations.SerializedName
 

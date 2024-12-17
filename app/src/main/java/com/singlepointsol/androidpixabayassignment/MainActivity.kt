@@ -1,19 +1,20 @@
 package com.singlepointsol.androidpixabayassignment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.singlepointsol.project.ApiService
-import com.singlepointsol.project.Cars
-import com.singlepointsol.project.CarsAdapter
-import com.singlepointsol.project.databinding.ActivityMainBinding
-import kotlinx.coroutines.*
+import com.singlepointsol.androidpixabayassignment.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
-    lateinit var recyclerView: RecyclerView
-    lateinit var flowersArrayList: ArrayList<Cars>
-    lateinit var carsAdapter: CarsAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var carsArrayList: ArrayList<Cars>
+    private lateinit var carsAdapter: CarsAdapter
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,25 +22,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize the RecyclerView
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-        flowersArrayList = arrayListOf()
-        carsAdapter = CarsAdapter(flowersArrayList)
+        carsArrayList = arrayListOf()
+        carsAdapter = CarsAdapter(carsArrayList)
         recyclerView.adapter = carsAdapter
 
-        // Fetch flowers data from API
-        fetchFlowersData()
+        // Fetch cars data from API
+        fetchCarsData()
     }
 
     // Coroutine scope to fetch data
-    private fun fetchFlowersData() {
+    @SuppressLint("NotifyDataSetChanged")
+    private fun fetchCarsData() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = RetrofitInstance.getRetrofitInstance()
                     .create(ApiService::class.java)
-                    .getFlowers() // Calling suspend function
+                    .getCars()
 
                 if (response.isSuccessful) {
                     withContext(Dispatchers.Main) {
@@ -50,8 +51,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
-                // Handle errors
+                e.printStackTrace()
             }
         }
     }
 }
+

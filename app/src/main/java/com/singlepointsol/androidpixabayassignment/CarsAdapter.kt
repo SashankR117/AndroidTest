@@ -1,5 +1,6 @@
-package com.singlepointsol.project
+package com.singlepointsol.androidpixabayassignment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.singlepointsol.androidpixabayassignment.R
 
 class CarsAdapter(private val carsArrayList: ArrayList<Cars>) : RecyclerView.Adapter<CarsAdapter.ViewHolder>() {
 
@@ -26,11 +26,12 @@ class CarsAdapter(private val carsArrayList: ArrayList<Cars>) : RecyclerView.Ada
 
     override fun getItemCount(): Int = carsArrayList.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val flower = carsArrayList[position]
+        val car = carsArrayList[position]
 
         // Load the image using Glide
-        Glide.with(holder.itemView.context).load(flower.carImage).into(holder.carImage)
+        Glide.with(holder.itemView.context).load(car.carImage).into(holder.carImage)
 
         // Set the text for the user, views, downloads, and likes
         holder.userName.text = "User: ${car.user}"

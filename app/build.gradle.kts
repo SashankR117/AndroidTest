@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.singlepointsol.androidpixabayassignment"
         minSdk = 27
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -51,7 +54,7 @@ dependencies {
     implementation (libs.glide)
     implementation (libs.material.v190)
     implementation (libs.retrofit)
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation (libs.converter.gson)
     implementation (libs.logging.interceptor)
 
 }

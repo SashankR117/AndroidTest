@@ -62,22 +62,10 @@
                 tools:text="Views: 1200" />
 
             <TextView
-                android:id="@+id/download_count"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/view_count"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:paddingTop="4dp"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
-                tools:text="Downloads: 450" />
-
-            <TextView
                 android:id="@+id/likes_count"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/download_count"
+                app:layout_constraintTop_toBottomOf="@id/view_count"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:paddingTop="4dp"

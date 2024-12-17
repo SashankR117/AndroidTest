@@ -1,6 +1,5 @@
-package com.singlepointsol.project
+package com.singlepointsol.androidpixabayassignment
 
-import androidx.tracing.perfetto.handshake.protocol.Response
 import retrofit2.Response
 import retrofit2.http.GET
 
