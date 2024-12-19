@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">AndroidPixabayAssignment</string>
-    <string name="car_image" />
-    <string name="user_johndoe">User: JohnDoe</string>
-    <string name="views_10000">Views: 10000</string>
-    <string name="views_100" />
-    <string name="downloads_1500">Downloads: 1500</string>
-    <string name="likes_1000">Likes: 1000</string>
-</resources>
